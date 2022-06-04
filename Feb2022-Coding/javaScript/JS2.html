@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JS Class 2</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+</head>
+
+<body>
+
+  <div class="container-fluid">
+    <div class="container">
+      <h2>Javascript Class 2</h2>
+      <div class="form-group">
+        <label for="exampleFormControlInput1">Input Number</label>
+        <input type="number" class="form-control" id="inputNumber" placeholder="Enter Number...">
+      </div>
+      <input type="button" value="Submit" class="btn btn-primary">
+      <div id="result"></div>
+    </div>
+  </div>
+  <script>
+    let m = 13;
+    let a = true;
+
+
+    if (m == 1) {
+      console.log("Month is January");
+    } else if (m == 2) {
+      console.log("Month is February");
+    } else if (m == 3) {
+      console.log("Month is March");
+    } else if (m == 4) {
+      console.log("Month is April");
+    } else if (m == 5) {
+      console.log("Month is May");
+    } else if (m == 6) {
+      console.log("Month is june");
+    } else if (m == 7) {
+      console.log("Month is July");
+    } else if (m == 8) {
+      console.log("Month is August");
+    } else if (m == 9) {
+      console.log("Month is September");
+    } else if (m == 10) {
+      console.log("Month is October");
+    } else if (m == 11) {
+      console.log("Month is Nov");
+    } else if (m == 12) {
+      console.log("Month is Dec");
+    }
+    else {
+      console.log("Invalid Month");
+    }
+
+
+    let name = "Tesfaye", age = 20;
+    if (name = "Tesfaye" || age > 20) {
+      console.log('You are allowed to drink!');
+    } else {
+      console.log('You are not allowed to drink');
+    }
+
+    //Print odd numbers 
+    n = 201;
+    for (let i = 1; i <= n; i = i + 1) {
+      if (i % 2 == 1) {
+        console.log(i);
+      }
+    }
+    // for (let i = 1; i <= n; i = i + 2) {
+    //   console.log(i);
+    // }
+
+    //Array 
+    let students = ["Ahmed", "Dida", "Kidist", "Melkam"]
+
+    //Object 
+    let student1 = {
+      name: "Ahmed",
+      dob: "4/4/2000",
+      email: "ahmed@email.com",
+      id: 4,
+      phone: "444-356-3578"
+    }
+
+    let today = new Date();
+
+  </script>
+</body>
+
+</html>

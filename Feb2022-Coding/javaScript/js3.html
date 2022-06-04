@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JS Class 2</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+  <style>
+    #result {
+      font-size: 1.5em;
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container-fluid">
+    <div class="container">
+      <h2>Javascript Class 2</h2>
+      <div class="form-group">
+        <label for="exampleFormControlInput1">Input Number</label>
+        <input type="number" class="form-control" id="inputNumber" placeholder="Enter Number...">
+      </div>
+      <input type="button" value="Submit" onclick="submitNumber()" class="btn btn-primary">
+      <input type="button" value="Clear" onclick="clearData()" class="btn btn-secondary">
+      <div id="result" class="mt-5"></div>
+    </div>
+  </div>
+  <script>
+    function submitNumber() {
+      let n = document.getElementById('inputNumber').value;
+      document.getElementById('result').innerHTML = "";
+
+      if (n == '' || n <= 0) {
+        alert('Please enter a positive number');
+        return;
+      }
+
+      for (let i = 1; i <= n; i++) {
+        
+        let astrix = "";
+        for(let s = 1; s<= n-i; s ++){
+          astrix += "&nbsp;";
+        }
+
+        for(let j=1; j<= 2*i -1; j++){
+          astrix += "*";
+        }
+
+        
+
+        document.getElementById('result').innerHTML += astrix + "<br>";
+      }
+
+    }
+
+
+    function clearData() {
+      document.getElementById('inputNumber').value = '';
+      document.getElementById('result').innerHTML = '';
+    }
+
+  </script>
+</body>
+
+</html>
