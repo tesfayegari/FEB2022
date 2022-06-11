@@ -1,7 +1,13 @@
 import { Version } from '@microsoft/sp-core-library';
 import {
   IPropertyPaneConfiguration,
-  PropertyPaneTextField
+  PropertyPaneCheckbox,
+  PropertyPaneDropdown,
+  PropertyPaneHorizontalRule,
+  PropertyPaneSlider,
+  PropertyPaneTextField,
+  PropertyPaneToggle,
+  
 } from '@microsoft/sp-property-pane';
 import { BaseClientSideWebPart } from '@microsoft/sp-webpart-base';
 import { IReadonlyTheme } from '@microsoft/sp-component-base';
@@ -12,6 +18,11 @@ import * as strings from 'HelloWorldWebPartStrings';
 
 export interface IHelloWorldWebPartProps {
   description: string;
+  fullName: string;  
+  myToggle: boolean;
+  myCheckBox: boolean;
+  myChoice: string;
+  myslider: number;
 }
 
 export default class HelloWorldWebPart extends BaseClientSideWebPart<IHelloWorldWebPartProps> {
@@ -32,24 +43,14 @@ export default class HelloWorldWebPart extends BaseClientSideWebPart<IHelloWorld
         <img alt="" src="${this._isDarkTheme ? require('./assets/welcome-dark.png') : require('./assets/welcome-light.png')}" class="${styles.welcomeImage}" />
         <h2>Well done, ${escape(this.context.pageContext.user.displayName)}!</h2>
         <div>${this._environmentMessage}</div>
-        <div>Web part property value: <strong>${escape(this.properties.description)}</strong></div>
+        <div>Webpart Title: <strong>${this.properties.description}</strong></div>
+        <div>Full Name: <strong>${this.properties.fullName}</strong></div>
+        <div>My Toggle: <strong>${this.properties.myToggle}</strong></div>
+        <div>Checkbox: <strong>${this.properties.myCheckBox}</strong></div>
+        <div>Gender: <strong>${this.properties.myChoice}</strong></div>
+        <div>Age: <strong>${this.properties.myslider}</strong></div>
       </div>
-      <div>
-        <h3>Welcome to SharePoint Framework!</h3>
-        <p>
-        The SharePoint Framework (SPFx) is a extensibility model for Microsoft Viva, Microsoft Teams and SharePoint. It's the easiest way to extend Microsoft 365 with automatic Single Sign On, automatic hosting and industry standard tooling.
-        </p>
-        <h4>Learn more about SPFx development:</h4>
-          <ul class="${styles.links}">
-            <li><a href="https://aka.ms/spfx" target="_blank">SharePoint Framework Overview</a></li>
-            <li><a href="https://aka.ms/spfx-yeoman-graph" target="_blank">Use Microsoft Graph in your solution</a></li>
-            <li><a href="https://aka.ms/spfx-yeoman-teams" target="_blank">Build for Microsoft Teams using SharePoint Framework</a></li>
-            <li><a href="https://aka.ms/spfx-yeoman-viva" target="_blank">Build for Microsoft Viva Connections using SharePoint Framework</a></li>
-            <li><a href="https://aka.ms/spfx-yeoman-store" target="_blank">Publish SharePoint Framework applications to the marketplace</a></li>
-            <li><a href="https://aka.ms/spfx-yeoman-api" target="_blank">SharePoint Framework API reference</a></li>
-            <li><a href="https://aka.ms/m365pnp" target="_blank">Microsoft 365 Developer Community</a></li>
-          </ul>
-      </div>
+     
     </section>`;
   }
 
@@ -85,14 +86,85 @@ export default class HelloWorldWebPart extends BaseClientSideWebPart<IHelloWorld
       pages: [
         {
           header: {
-            description: strings.PropertyPaneDescription
+            description: "General Settings"
           },
           groups: [
             {
-              groupName: strings.BasicGroupName,
+              groupName: "Basic Settings",
               groupFields: [
                 PropertyPaneTextField('description', {
-                  label: strings.DescriptionFieldLabel
+                  label: "Webpart Title",
+                  placeholder: "Title of the webpart"
+                }),
+                PropertyPaneTextField('fullName', {
+                  label: "Full Name",
+                  placeholder: "Jon Do"
+                }),
+                PropertyPaneToggle('myToggle',{
+                  label: "My Toggle",
+                  onText: "You turned it on",
+                  offText: "You turned it off",
+                }),
+                PropertyPaneCheckbox('myCheckBox', {
+                  text: "My Checkbox"
+                }),
+                PropertyPaneDropdown('myChoice', {
+                  label: "Gender",
+                  options: [
+                    {key: "Male", text: "Male"},
+                    {key: "Female", text: "Female"},
+                    {key: "LGBT", text: "LGBT"},
+                    {key: "Other", text: "Other"},
+                  ]
+                }), 
+                PropertyPaneSlider('myslider', {
+                  label: "Select Age",
+                  min: 10,
+                  max: 100, 
+                  value: 20
+                })
+              ]
+            }
+          ]
+        },
+        {
+          header: {
+            description: "General Settings"
+          },
+          groups: [
+            {
+              groupName: "Basic Settings",
+              groupFields: [
+                PropertyPaneTextField('description1', {
+                  label: "Webpart Title 1",
+                  placeholder: "Title of the webpart"
+                }),
+                PropertyPaneTextField('fullName1', {
+                  label: "Full Name 1",
+                  placeholder: "Jon Do"
+                }),
+                PropertyPaneToggle('myToggle1',{
+                  label: "My Toggle",
+                  onText: "You turned it on",
+                  offText: "You turned it off",
+                }),
+                PropertyPaneCheckbox('myCheckBox1', {
+                  text: "My Checkbox"
+                }),
+                PropertyPaneDropdown('myChoice1', {
+                  label: "Gender",
+                  options: [
+                    {key: "Male", text: "Male"},
+                    {key: "Female", text: "Female"},
+                    {key: "LGBT", text: "LGBT"},
+                    {key: "Other", text: "Other"},
+                  ]
+                }), 
+                PropertyPaneSlider('myslider1', {
+                  label: "Select Age",
+                  min: 10,
+                  max: 100, 
+                  value: 20
                 })
               ]
             }

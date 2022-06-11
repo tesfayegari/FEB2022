@@ -22,7 +22,12 @@
     "description": { "default": "HelloWorld description" },
     "officeFabricIconFontName": "Page",
     "properties": {
-      "description": "HelloWorld"
+      "description": "HelloWorld",
+      "myslider": 20,
+      "myChoice": "Male",
+      "myToggle": true,
+      "myCheckBox": true,
+      "fullName": "John Do"
     }
   }]
 }
