@@ -88,9 +88,84 @@ export default class HelloWorldWebPart extends BaseClientSideWebPart<IHelloWorld
           header: {
             description: "General Settings"
           },
+          displayGroupsAsAccordion: true,
           groups: [
             {
               groupName: "Basic Settings",
+              groupFields: [
+                PropertyPaneTextField('description', {
+                  label: "Webpart Title",
+                  placeholder: "Title of the webpart"
+                }),
+                PropertyPaneTextField('fullName', {
+                  label: "Full Name",
+                  placeholder: "Jon Do"
+                }),
+                PropertyPaneToggle('myToggle',{
+                  label: "My Toggle",
+                  onText: "You turned it on",
+                  offText: "You turned it off",
+                }),
+                PropertyPaneCheckbox('myCheckBox', {
+                  text: "My Checkbox"
+                }),
+                PropertyPaneDropdown('myChoice', {
+                  label: "Gender",
+                  options: [
+                    {key: "Male", text: "Male"},
+                    {key: "Female", text: "Female"},
+                    {key: "LGBT", text: "LGBT"},
+                    {key: "Other", text: "Other"},
+                  ]
+                }), 
+                PropertyPaneSlider('myslider', {
+                  label: "Select Age",
+                  min: 10,
+                  max: 100, 
+                  value: 20
+                })
+              ]
+            },
+            {
+              groupName: "Contact Settings",
+              isCollapsed: true,
+              groupFields: [
+                PropertyPaneTextField('description', {
+                  label: "Webpart Title",
+                  placeholder: "Title of the webpart"
+                }),
+                PropertyPaneTextField('fullName', {
+                  label: "Full Name",
+                  placeholder: "Jon Do"
+                }),
+                PropertyPaneToggle('myToggle',{
+                  label: "My Toggle",
+                  onText: "You turned it on",
+                  offText: "You turned it off",
+                }),
+                PropertyPaneCheckbox('myCheckBox', {
+                  text: "My Checkbox"
+                }),
+                PropertyPaneDropdown('myChoice', {
+                  label: "Gender",
+                  options: [
+                    {key: "Male", text: "Male"},
+                    {key: "Female", text: "Female"},
+                    {key: "LGBT", text: "LGBT"},
+                    {key: "Other", text: "Other"},
+                  ]
+                }), 
+                PropertyPaneSlider('myslider', {
+                  label: "Select Age",
+                  min: 10,
+                  max: 100, 
+                  value: 20
+                })
+              ]
+            },
+            {
+              groupName: "Address Settings",
+              isCollapsed: true,
               groupFields: [
                 PropertyPaneTextField('description', {
                   label: "Webpart Title",
@@ -129,7 +204,7 @@ export default class HelloWorldWebPart extends BaseClientSideWebPart<IHelloWorld
         },
         {
           header: {
-            description: "General Settings"
+            description: "Advanced Settings"
           },
           groups: [
             {

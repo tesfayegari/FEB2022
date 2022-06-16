@@ -68,3 +68,32 @@ when it is an id attribute selector
 #mytable {width: 100;}
 
 
+REST API 
+
+entry to SharePoint REST API (/_api)
+https://siteCollectionUrl/_api/
+
+Site data 
+
+https://siteCollectionUrl/_api/site
+
+Web (Root web)
+https://siteCollectionUrl/_api/web
+
+Get all lists 
+
+https://siteCollectionUrl/_api/web/lists
+
+One list by title 
+
+https://siteCollectionUrl/_api/web/lists/getbytitle('ListName')
+
+Example list title Customers
+https://siteCollectionUrl/_api/web/lists/getbytitle('Customers')
+
+
+Items in a Customers list (Default 100 items)
+https://siteCollectionUrl/_api/web/lists/getbytitle('Customers')/items
+
+
+
