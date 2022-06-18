@@ -69,6 +69,7 @@ when it is an id attribute selector
 
 
 REST API 
+https://social.technet.microsoft.com/wiki/contents/articles/35796.sharepoint-2013-using-rest-api-for-selecting-filtering-sorting-and-pagination-in-sharepoint-list.aspx
 
 entry to SharePoint REST API (/_api)
 https://siteCollectionUrl/_api/
@@ -94,6 +95,37 @@ https://siteCollectionUrl/_api/web/lists/getbytitle('Customers')
 
 Items in a Customers list (Default 100 items)
 https://siteCollectionUrl/_api/web/lists/getbytitle('Customers')/items
+
+More Examples
+
+See below examples:
+
+Filter by Title
+
+ /_api/web/lists/getbytitle('infolist')/items?$filter= Employee eq ‘parth'
+
+Filter by ID:  
+
+/_api/web/lists/getbytitle('infolist')/items?$filter=ID eq 2
+
+Filter by Date
+
+  /_api/web/lists/getbytitle('infolist')/items?$filter=Start_x0020_Date le datetime'2016-03-26T09:59:32Z'
+
+Multiple Filters
+
+  /_api/web/lists/getbytitle('infolist')/items?$filter=( Modified le datetime'2016-03-26T09:59:32Z') and (ID eq 2)
+
+Title name starts with the letter P
+
+/_api/web/lists/getbytitle('infolist')/items?$filter=startswith(Title,‘P’)
+
+Return all items from the'infolist'list modified in May
+
+/_api/web/lists/getbytitle('infolist')/items? $filter=month(Modified) eq 5
+
+ 
+
 
 
 
