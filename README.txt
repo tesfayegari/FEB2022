@@ -124,6 +124,21 @@ Return all items from the'infolist'list modified in May
 
 /_api/web/lists/getbytitle('infolist')/items? $filter=month(Modified) eq 5
 
+
+SharePoint Profile Picture
+/_layouts/15/userphoto.aspx?size=L&username=joao@handsonsharepoint.com
+
+Options:
+
+Size=S | 48×48 px
+Size=M | 72×72 px
+Size=L | 300×300 px
+Username – replace it by the user email you want to retrieve the photo
+
+Example to get large Picture for tesfaye@tesfaye.com email 
+
+ <img src="/_layouts/15/userphoto.aspx?size=L&username=tesfaye@tesfaye.com"/>
+
  
 
 
