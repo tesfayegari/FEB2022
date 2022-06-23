@@ -1,0 +1,19 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/config.2.0.schema.json",
+  "version": "2.0",
+  "bundles": {
+    "employee-birthdays-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/employeeBirthdays/EmployeeBirthdaysWebPart.js",
+          "manifest": "./src/webparts/employeeBirthdays/EmployeeBirthdaysWebPart.manifest.json"
+        }
+      ]
+    }
+  },
+  "externals": {},
+  "localizedResources": {
+    "EmployeeBirthdaysWebPartStrings": "lib/webparts/employeeBirthdays/loc/{locale}.js",
+    "PropertyControlStrings": "node_modules/@pnp/spfx-property-controls/lib/loc/{locale}.js"
+  }
+}
