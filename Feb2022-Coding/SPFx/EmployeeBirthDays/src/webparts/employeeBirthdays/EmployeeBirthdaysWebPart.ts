@@ -3,6 +3,7 @@ import * as ReactDom from 'react-dom';
 import { Version } from '@microsoft/sp-core-library';
 import {
   IPropertyPaneConfiguration,
+  PropertyPaneSlider,
   PropertyPaneTextField
 } from '@microsoft/sp-property-pane';
 import { BaseClientSideWebPart } from '@microsoft/sp-webpart-base';
@@ -18,6 +19,7 @@ import { IEmployeeBirthdaysProps } from './components/IEmployeeBirthdaysProps';
 export interface IEmployeeBirthdaysWebPartProps {
   description: string;
   lists: string;// | string[]; // Stores the list ID(s)
+  numEmployee: number;
 }
 
 export default class EmployeeBirthdaysWebPart extends BaseClientSideWebPart<IEmployeeBirthdaysWebPartProps> {
@@ -43,7 +45,8 @@ export default class EmployeeBirthdaysWebPart extends BaseClientSideWebPart<IEmp
         isDarkTheme: this._isDarkTheme,
         environmentMessage: this._environmentMessage,
         hasTeamsContext: !!this.context.sdks.microsoftTeams,
-        userDisplayName: this.context.pageContext.user.displayName
+        userDisplayName: this.context.pageContext.user.displayName, 
+        count: this.properties.numEmployee
       }
     );
 
@@ -53,6 +56,11 @@ export default class EmployeeBirthdaysWebPart extends BaseClientSideWebPart<IEmp
   protected get disableReactivePropertyChanges(): boolean {
     return true;
   }
+
+   protected onAfterPropertyPaneChangesApplied(): void {
+     //this.dispose();
+     this.render();
+   }
 
   private _getEnvironmentMessage(): string {
     if (!!this.context.sdks.microsoftTeams) { // running in Teams
@@ -111,6 +119,11 @@ export default class EmployeeBirthdaysWebPart extends BaseClientSideWebPart<IEmp
                   onGetErrorMessage: null,
                   deferredValidationTime: 0,
                   key: 'listPickerFieldId'
+                }),
+                PropertyPaneSlider('numEmployee', {
+                  label: 'Max number of Employee',
+                  min: 1, 
+                  max: 100
                 })
               ]
             }

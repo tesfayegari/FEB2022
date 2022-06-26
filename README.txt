@@ -122,7 +122,7 @@ Title name starts with the letter P
 
 Return all items from the'infolist'list modified in May
 
-/_api/web/lists/getbytitle('infolist')/items? $filter=month(Modified) eq 5
+/_api/web/lists/getbytitle('infolist')/items?$filter=month(Modified) eq 5
 
 
 SharePoint Profile Picture

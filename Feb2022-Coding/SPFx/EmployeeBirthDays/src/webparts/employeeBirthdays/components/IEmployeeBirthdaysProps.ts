@@ -8,4 +8,5 @@ export interface IEmployeeBirthdaysProps {
   userDisplayName: string;
   lists: string;
   _context: WebPartContext;
+  count: number;
 }

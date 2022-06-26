@@ -6,10 +6,10 @@ export class Service {
 
   }
 
-  getUpComingBirthdays(listName: string) {
+  getUpComingBirthdays(listName: string, count: number=3) {
     let todayDate = (new Date()).getDate();
     let todayMonth = (new Date()).getMonth() + 1;
-    let url = `${this.context.pageContext.web.absoluteUrl}/_api/web/lists/getbytitle('${listName}')/items?$select=*,Employee/Title,Employee/EMail&$filter=Month_x002d_Date ge '2000-${todayMonth}-${todayDate}T00:00:00Z'&$expand=Employee&$orderby=Month_x002d_Date asc`;
+    let url = `${this.context.pageContext.web.absoluteUrl}/_api/web/lists/getbytitle('${listName}')/items?$select=*,Employee/Title,Employee/EMail&$filter=Month_x002d_Date ge '2000-${todayMonth}-${todayDate}T00:00:00Z'&$top=${count}&$expand=Employee&$orderby=Month_x002d_Date asc`;
 
     return this.context.spHttpClient.get(url,
       SPHttpClient.configurations.v1,

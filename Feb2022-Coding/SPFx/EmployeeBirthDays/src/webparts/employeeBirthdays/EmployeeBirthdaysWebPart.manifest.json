@@ -22,7 +22,8 @@
     "description": { "default": "EmployeeBirthdays description" },
     "officeFabricIconFontName": "BirthdayCake",
     "properties": {
-      "description": "EmployeeBirthdays"
+      "description": "EmployeeBirthdays",
+      "numEmployee" : 3
     }
   }]
 }
